@@ -1,0 +1,19 @@
+Title : Flat bill devider
+Description : Flat bill divider will divide the bills that are inputted 
+for the particular month or time frame and then it will correctly 
+calculate the results. This result will again transformed into 
+a PDF format
+
+Objects:    Bill:
+                amount
+                period
+            Flatmate:
+                name
+                days_in_house
+                pays(bill)
+            PdfReport:
+                filename
+                generate(flatmate1,flatmate2,bill)
+                
+
+        
