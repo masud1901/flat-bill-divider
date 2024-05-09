@@ -1,6 +1,8 @@
 from bill import Bill
 from flatmate import Flatmate
 from pdfReport import PdfReport
+import datetime
+import calendar
 
 amount = int(input("The total amount of the bill: "))
 period = str(input("The period of the bill: i.e. December 2020: "))
@@ -19,11 +21,17 @@ for i in range(1, no_of_flatmates + 1):
     total_days_staying += days_in_house
 
 
-rest_of_the_days = 30 - days_in_house
-if rest_of_the_days < 0:
-    rest_of_the_days = 0
+period_parts = period.split()
+year = int(period_parts[1])
+month = datetime.datetime.strptime(period_parts[0], "%B").month
+num_days_in_month = calendar.monthrange(year, month)[1]
 
 for flatmate in flatmates:
-    bill = flatmate.pays(bill, no_of_flatmates, total_days_staying, rest_of_the_days)
-    total
-    print(f"{flatmate.name} pays: {bill}")
+    print(
+        f"{flatmate.name} pays: {flatmate.pays(bill=bill, number_of_flatmates=no_of_flatmates, total_days=total_days_staying)}"
+    )
+
+
+# Generate the PDF report
+pdf_report = PdfReport(filename="bill_report.pdf")
+pdf_report.generate(flatmates, bill)

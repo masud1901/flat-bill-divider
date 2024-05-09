@@ -1,0 +1,5 @@
+Package    Version
+---------- -------
+fpdf       1.7.2
+pip        22.0.2
+setuptools 59.6.0

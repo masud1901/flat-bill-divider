@@ -7,11 +7,12 @@ class Flatmate:
     def __init__(self, name: str, days_in_house: int) -> None:
         self.name = name
         self.days_in_house = days_in_house
+        self.payment = 0
 
-    def pays(self, bill: bill.Bill, number_of_flatmates: int, total_days: int,rest_of_the_days:int) -> float:
+    def pays(self, bill: bill.Bill, number_of_flatmates: int, total_days: int) -> float:
         """Calculates how much each flatmate pays"""
         weight = self.days_in_house / total_days
-        bill = bill.amount * weight / number_of_flatmates
-        final_bill = bill + rest_of_the_days * bill / 30
-        
-        return round(final_bill, ndigits=2)
+        payment = bill.amount * weight
+        individual_share = payment / number_of_flatmates
+        self.payment = individual_share
+        return round(individual_share, ndigits=2)
