@@ -8,5 +8,3 @@ class Bill:
     def __init__(self, amount: int, period: str):
         self.amount = amount
         self.period = period
-
-

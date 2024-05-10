@@ -9,8 +9,7 @@ def get_num_days_in_month(period):
     period_parts = period.split()
     year = int(period_parts[1])
     month = datetime.datetime.strptime(period_parts[0], "%B").month
-    num_days_in_month = calendar.monthrange(year, month)[1]
-    return num_days_in_month
+    return calendar.monthrange(year, month)[1]
 
 
 def main():

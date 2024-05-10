@@ -2,7 +2,8 @@ import bill
 
 
 class Flatmate:
-    """Creates a flatmate person who lives in the flat and pays a share of bill"""
+    """Creates a flatmate person who lives in the
+    flat and pays a share of bill"""
 
     def __init__(self, name: str, days_in_house: int) -> None:
         self.name = name
