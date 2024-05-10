@@ -1,4 +1,6 @@
-import bill, flatmate
+import webbrowser
+import bill
+import flatmate
 from fpdf import FPDF
 
 
@@ -8,7 +10,7 @@ class PdfReport:
     def __init__(self, filename):
         self.filename = filename
 
-    def generate(self, flatmates, bill):
+    def generate(self, flatmates: flatmate.Flatmate, bill: bill.Bill):
         pdf = FPDF(orientation="P", unit="pt", format="A4")
         pdf.add_page()
 
@@ -43,5 +45,6 @@ class PdfReport:
             )
 
         # Save the PDF
-        pdf.output(self.filename)
+        pdf.output(f"reports/{self.filename}")
         print(f"PDF report generated: {self.filename}")
+        webbrowser.open("reports/{self.filename}")

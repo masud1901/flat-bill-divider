@@ -30,14 +30,13 @@ def main():
         total_days_staying += days_in_house
 
     bill = Bill(amount, period)
-    num_days_in_month = get_num_days_in_month(period)
 
     for flatmate in flatmates:
         print(
             f"{flatmate.name} pays: {flatmate.pays(bill=bill, number_of_flatmates=no_of_flatmates, total_days=total_days_staying)}"
         )
 
-    pdf_report = PdfReport(filename="bill_report.pdf")
+    pdf_report = PdfReport(filename=f"{bill.period}.pdf")
     pdf_report.generate(flatmates, bill)
 
 
